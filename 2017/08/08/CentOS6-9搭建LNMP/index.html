@@ -1,98 +1,106 @@
-extends includes/layout.pug
-
-block top_img
-  - var top_img = page.top_img || theme.post_meta.top_img || theme.top_img || config.top_img
-  if (top_img && page.top_img !== false)
-    - var flag = top_img === true ? 'no-bg' : undefined
-    div#top-container(style=`background-image: url(${top_img})` class=flag)
-      include ./includes/header.pug
-      #post-info
-        #post-title= page.title || _p('no_title')
-        #post-meta
-          if (theme.post_meta.date_type)
-            - var date_type = theme.post_meta.date_type === 'updated' ? 'updated' : 'date'
-            time.post-meta__date #[i.fa.fa-calendar(aria-hidden="true")] #[=date(page[date_type], config.date_format)]
-          if (theme.post_meta.categories && page.categories.data.length > 0)
-            if (theme.post_meta.date_type)
-              span.post-meta__separator |
-            each item, index in page.categories.data
-              i.fa.fa-inbox.post-meta__icon(aria-hidden="true")
-              a(href=url_for(item.path)).post-meta__categories #[=item.name]
-              if (index < page.categories.data.length - 1)
-                 i.fa.fa-angle-right(aria-hidden="true")
-          if (theme.disqus.enable && theme.disqus.count)
-            if (theme.post_meta.date_type || theme.post_meta.categories && page.categories.data.length > 0)
-              span.post-meta__separator |
-            i.fa.fa-comment-o.post-meta__icon(aria-hidden="true")
-            a(href=url_for(page.path) + '#disqus_thread')
-              span.disqus-comment-count(data-disqus-identifier=page.path)
-          if (theme.wordcount && theme.wordcount.enable)
-            .post-meta-wordcount
-              span= _p('post.wordcount') + ': '
-              span.word-count= wordcount(page.content)
-              span.post-meta__separator |
-              span= _p('post.min2read', min2read(page.content, {cn: 350, en: 160}))
-  else
-    div#top-container.plain
-      include ./includes/header.pug
-
-block content
-  article#post(class="")
-    if (!top_img)
-      #post-title.plain= page.title || _p('no_title')
-      #post-meta
-        if (theme.post_meta.date_type)
-          - var date_type = theme.post_meta.date_type === 'updated' ? '' : 'date'
-          time.post-meta__date #[i.fa.fa-calendar(aria-hidden="true")] #[=date(page[date_type], config.date_format)]
-        if (theme.post_meta.categories && page.categories.data.length > 0)
-          if (theme.post_meta.date_type)
-            span.post-meta__separator |
-          each item, index in page.categories.data
-            i.fa.fa-inbox(aria-hidden="true")
-            a(href=url_for(item.path)).post-meta__categories  #[=item.name]
-            if (index < page.categories.data.length - 1)
-                i.fa.fa-angle-right.post-meta__separator(aria-hidden="true")
-        if (theme.disqus.enable && theme.disqus.count)
-          if (theme.post_meta.date_type || theme.post_meta.categories && page.categories.data.length > 0)
-            span.post-meta__separator |
-          i.fa.fa-comment-o(aria-hidden="true")
-          a(href=url_for(page.path) + '#disqus_thread')
-            span.disqus-comment-count(data-disqus-identifier=page.path)
-        if (theme.wordcount && theme.wordcount.enable)
-          span.post-meta__separator |
-          span.post-meta-wordcount
-            span= _p('post.wordcount') + ': '
-            span.word-count= wordcount(page.content)
-            span.post-meta__separator |
-            span= _p('post.min2read', min2read(page.content, {cn: 350, en: 160}))
-    #post-content!= page.content
-  if (theme.post_copyright && theme.post_copyright.enable)
-    .post-copyright
-      .post-copyright__author
-        span.post-copyright-meta= _p('post.copyright.author') + ": "
-        span.post-copyright-info
-          a(href=`mailto:${config.email}`) #[=config.author]
-      .post-copyright__type
-        span.post-copyright-meta= _p('post.copyright.link') + ": "
-        span.post-copyright-info
-          a(href=url_for(page.permalink)) #[=page.permalink]
-      .post-copyright__notice
-        span.post-copyright-meta= _p('post.copyright.copyright_notice') + ": "
-        span.post-copyright-info!= _p('post.copyright.copyright_content', theme.post_copyright.license_url, theme.post_copyright.license, config.url, config.title)
-  if (theme.post_meta.tags)
-    .post-meta__tag-list
-      each item, index in page.tags.data
-        a(href=url_for(item.path)).post-meta__tags #[=item.name]
-  if (theme.QR_code)
-    if (theme.QR_code.length > 0)
-      .post-qr-code
-        each item in theme.QR_code
-          .post-qr-code-item
-            img.post-qr-code__img(src=(item.itemlist||item).img)
-            .post-qr-code__desc=(item.itemlist||item).text
-  include includes/share/index.pug
-  include includes/pagination.pug
-  if (theme.adv && theme.adv.enable)
-    .post-adv!= theme.adv.info
-  if page.comments !== false
-    include includes/comments/index.pug
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="虚拟机CentOS6.9搭建LNMP"><meta name="keywords" content="CentOS，LNMP"><meta name="author" content="陈凯,undefined"><meta name="copyright" content="陈凯"><title>虚拟机CentOS6.9搭建LNMP | Ck's Blog</title><link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css?version=1.5.4"><link rel="dns-prefetch" href="https://cdn.staticfile.org"><link rel="dns-prefetch" href="https://cdn.bootcss.com"><link rel="dns-prefetch" href="https://creativecommons.org"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  localSearch: undefined
+} </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#目标"><span class="toc-number">1.</span> <span class="toc-text">目标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#过程"><span class="toc-number">2.</span> <span class="toc-text">过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-虚拟机中安装CentOS并成功设置网络环境"><span class="toc-number">2.1.</span> <span class="toc-text">1.虚拟机中安装CentOS并成功设置网络环境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-搭建LNMP"><span class="toc-number">2.2.</span> <span class="toc-text">2.搭建LNMP</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#访问测试"><span class="toc-number">3.</span> <span class="toc-text">访问测试</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">陈凯</div><div class="author-info__description text-center">Just for learning and recording.</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">7</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">8</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container" style="background-image: url(true)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">Ck's Blog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="post-info"><div id="post-title">虚拟机CentOS6.9搭建LNMP</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2017-08-08</time></div></div></div><div class="layout" id="content-inner"><article id="post"><div id="post-content"><h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><blockquote>
+<p>Linux+Nginx+Mysql+Php,基本的web服务器搭建,能达到200并发访问</p>
+</blockquote>
+<hr>
+<h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><h4 id="1-虚拟机中安装CentOS并成功设置网络环境"><a href="#1-虚拟机中安装CentOS并成功设置网络环境" class="headerlink" title="1.虚拟机中安装CentOS并成功设置网络环境"></a>1.虚拟机中安装CentOS并成功设置网络环境</h4><p>安装CentOS在这里就不过多赘述了，详细地介绍以下Vmware Workstation下对网络环境的配置。</p>
+<p>在安装好系统之后，打开“编辑虚拟机设置”。</p>
+<p><img src="/img/vm1.jpg" alt="vm1"></p>
+<p>可以看到这里有两个网络适配器。</p>
+<p><img src="/img/vm2.PNG" alt="vm2"></p>
+<p>默认状况下只有一个网络适配器，选中这个网络适配器，在右边选择“NAT模式”。然后，点击下面的“添加”，添加”网络适配器“，并选择“仅主机模式”。</p>
+<p><img src="/img/vm3.PNG" alt="vm3"></p>
+<p>然后，点击编辑-&gt;虚拟机网络编辑器。</p>
+<p><img src="/img/vm4.PNG" alt="vm4"></p>
+<p>在编辑器中，选中你添加的“仅主机模式”的网卡，在这里就是“VMnet1”，然后点击“更改设置”，</p>
+<p>将下面的“子网IP”改为“192.168.xxx.0”，这里第三部分可以自定义（只要最终是一个存在的IP就可以），后面的“子网掩码”改为“255.255.255.0”，点确定。</p>
+<p><img src="/img/vm5.PNG" alt="vm5"></p>
+<p>之后，点开本机的“更改适配器设置”，找到对应上面“VMnet1”的虚拟网卡，右击选择属性，更改ipv4的属性，将“IP地址”填为“192.168.xxx.1”（这里的IP地址前三部份要与上面的一致），“子网掩码”改为“255.255.255.0”。保存退出。</p>
+<p>完成以上步骤后，打开虚拟机，以root身份登陆。</p>
+<p>打开/etc/rc.d/rc.local文件，将下面三行添加到文件中。（eth0默认是网卡1，eth1是网卡2）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ifconfig eth1 up</div><div class="line">ifconfig eth1 192.168.xxx.xxx   （这里的IP地址，第三部分与前面步骤填写的一致，最后一部分可以是1之后的任一数字）</div><div class="line">ulimit -HSn 65536</div></pre></td></tr></table></figure>
+<p>完成之后，在虚拟机里面可以连接外网，本机上可以ping通网卡2的IP地址（你设置的192.168.xxx.xxx）。</p>
+<h4 id="2-搭建LNMP"><a href="#2-搭建LNMP" class="headerlink" title="2.搭建LNMP"></a>2.搭建LNMP</h4><ul>
+<li>查看环境：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@XXX]# cat /etc/redhat-release </div><div class="line">CentOS release 6.9 (Final)</div></pre></td></tr></table></figure>
+<ul>
+<li>关掉防火墙</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@XXX]# chkconfig iptables off</div></pre></td></tr></table></figure>
+<ul>
+<li>配置CentOS 6.0 第三方yum源（CentOS默认的标准源里没有nginx软件包）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># wget http://www.atomicorp.com/installers/atomic</div><div class="line"># sh ./atomic</div><div class="line"># yum check-update</div></pre></td></tr></table></figure>
+<ul>
+<li>安装开发包和库文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># yum -y install ntp make openssl openssl-devel pcre pcre-devel libpng libpng-devel libjpeg-6b libjpeg-devel-6b freetype freetype-devel gd gd-devel zlib zlib-devel gcc gcc-c++ libXpm libXpm-devel ncurses ncurses-devel libmcrypt libmcrypt-devel libxml2 libxml2-devel imake autoconf automake screen sysstat compat-libstdc++-33 curl curl-devel</div></pre></td></tr></table></figure>
+<ul>
+<li>卸载已安装的apache、mysql、php</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># yum remove httpd</div><div class="line"># yum remove mysql</div><div class="line"># yum remove php</div></pre></td></tr></table></figure>
+<ul>
+<li>安装nginx</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># yum install nginx</div><div class="line"># service nginx start</div><div class="line"># chkconfig --levels 235 nginx on   //设2、3、5级别开机启动</div></pre></td></tr></table></figure>
+<ul>
+<li>安装mysql</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># yum install mysql mysql-server mysql-devel</div><div class="line"># service mysqld start</div><div class="line"># chkconfig --levels 235 mysqld on</div></pre></td></tr></table></figure>
+<ul>
+<li>登陆MySQL删除空用户，修改root密码</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mysql&gt;select user,host,password from mysql.user;</div><div class="line">mysql&gt;drop user &apos;&apos;@localhost;</div><div class="line">mysql&gt;update mysql.user set password = PASSWORD(&apos;*********&apos;) where user=&apos;root&apos;;</div><div class="line">mysql&gt;flush privileges;</div></pre></td></tr></table></figure>
+<ul>
+<li>安装php</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># yum install php lighttpd-fastcgi php-cli php-mysql php-gd php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-mssql php-snmp php-soap</div></pre></td></tr></table></figure>
+<ul>
+<li>安装php和所需组件使PHP支持MySQL、FastCGI模式</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># yum install  php-tidy php-common php-devel php-fpm php-mysql</div><div class="line"># service php-fpm start</div><div class="line"># chkconfig --levels 235 php-fpm on</div></pre></td></tr></table></figure>
+<ul>
+<li><p>配置nginx支持php</p>
+<p>首先，将配置文件改为备份文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># mv /etc/nginx/nginx.conf /etc/nginx/nginx.confbak</div></pre></td></tr></table></figure>
+<p>然后，由于原配置文件要自己去写因此可以使用默认的配置文件作为配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># cp /etc/nginx/nginx.conf.default /etc/nginx/nginx.conf</div></pre></td></tr></table></figure>
+<p>修改nginx配置文件，添加fastcgi支持</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"># vi /etc/nginx/nginx.conf</div><div class="line">index index.php index.html index.htm;       //加入index.php</div><div class="line"></div><div class="line">location ~ \.php$ &#123;</div><div class="line">            root           /usr/share/nginx/html;</div><div class="line">            fastcgi_pass   127.0.0.1:9000;</div><div class="line">            fastcgi_index  index.php;</div><div class="line">            fastcgi_param  SCRIPT_FILENAME  /usr/share/nginx/html$fastcgi_script_name;</div><div class="line">            include        fastcgi_params;</div><div class="line">        &#125;</div><div class="line"> //用vi打开文件后这一部分原本是被注释的，需要把前面的#去掉，并修改成nginx默认路径</div></pre></td></tr></table></figure>
+</li>
+<li><p>配置php</p>
+<p>编辑文件php.ini，在文件末尾添加cgi.fix_pathinfo = 1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># vi /etc/php.ini</div></pre></td></tr></table></figure>
+</li>
+<li><p>重启nginx php-fpm</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># service nginx restart</div><div class="line"># service php-fpm restart</div></pre></td></tr></table></figure>
+<ul>
+<li>建立phpinfo.php文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># vi /usr/share/nginx/html/info.php</div><div class="line">&lt;?php     phpinfo();     ?&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>测试nginx是否解析php</p>
+<p>本地浏览器输入</p>
+<p>localhost:8080/phpinfo.php</p>
+<p>或者</p>
+<p>192.168.xxx.xxx/phpinfo.php</p>
+<p>显示php界面 环境搭建成功 </p>
+<p><img src="img/vm6.png" alt="vm6"></p>
+</li>
+</ul>
+<h3 id="访问测试"><a href="#访问测试" class="headerlink" title="访问测试"></a>访问测试</h3><p>这里我们用webbench来模拟多人并发访问。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># webbench -c 并发数 -t 运行测试时间 URL</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"># webbench -c 200 -t 30 http://192.168.66.110/info.php</div><div class="line">Webbench - Simple Web Benchmark 1.5</div><div class="line">Copyright (c) Radim Kolar 1997-2004, GPL Open Source Software.</div><div class="line"></div><div class="line">Benchmarking: GET http://192.168.66.110/info.php</div><div class="line">200 clients, running 30 sec.</div><div class="line"></div><div class="line">Speed=42534 pages/min, 41301852 bytes/sec.</div><div class="line">Requests: 21267 susceed, 0 failed.</div></pre></td></tr></table></figure>
+<p>上面是我的测试实例，200并发访问，测试时间30s。</p>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">陈凯</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://chenkai.tk/2017/08/08/CentOS6-9搭建LNMP/">https://chenkai.tk/2017/08/08/CentOS6-9搭建LNMP/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/CentOS，LNMP/">CentOS，LNMP</a></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2017/09/01/U盘PE制作/"><i class="fa fa-chevron-left">  </i><span>U盘PE制作</span></a></div><div class="next-post pull-right"><a href="/2017/07/31/Linux-目录及目录结构/"><span>Linux 目录及目录结构</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2018 By 陈凯</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file-o"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="/js/third-party/anime.min.js"></script><script src="/js/third-party/jquery.min.js"></script><script src="/js/third-party/jquery.fancybox.min.js"></script><script src="/js/third-party/velocity.min.js"></script><script src="/js/third-party/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.5.4"></script><script src="/js/fancybox.js?version=1.5.4"></script><script src="/js/sidebar.js?version=1.5.4"></script><script src="/js/copy.js?version=1.5.4"></script><script src="/js/fireworks.js?version=1.5.4"></script><script src="/js/transition.js?version=1.5.4"></script><script src="/js/scroll.js?version=1.5.4"></script><script src="/js/head.js?version=1.5.4"></script></body></html>

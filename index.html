@@ -1,5 +1,211 @@
-extends includes/layout.pug
-
-block content
-  include includes/recent-posts.pug
-  include includes/pagination.pug
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="Just for learning and recording."><meta name="keywords" content=""><meta name="author" content="陈凯,undefined"><meta name="copyright" content="陈凯"><title>Ck's Blog</title><link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css?version=1.5.4"><link rel="dns-prefetch" href="https://cdn.staticfile.org"><link rel="dns-prefetch" href="https://cdn.bootcss.com"><link rel="dns-prefetch" href="https://creativecommons.org"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  localSearch: undefined
+} </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="author-info"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">陈凯</div><div class="author-info__description text-center">Just for learning and recording.</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">7</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">8</span></a></div></div></div><nav class="no-bg" id="nav" style="background-image: url(true)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">Ck's Blog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="site-info"><div id="site-title">Ck's Blog</div><div id="site-sub-title"></div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item"><a class="article-title" href="/2018/05/16/重新开始/">重新开始</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2018-05-16</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/记录/">记录</a></span><div class="content"><p>转眼我也快大三了，感觉浪费了许多时间，唉。</p>
+<p>给自己的博客换了个主题，换个心情，好好努力，好好学习。</p>
+<p>定个任务：除了课业任务和大创的任务，多刷刷题（<img src="https://leetcode-cn.com/" alt="leetcode">，<img src="https://www.freecodecamp.cn/" alt="freCodeCampe">）。</p>
+<p>Fighting！</p>
+</div><hr></div><div class="recent-post-item"><a class="article-title" href="/2017/09/01/U盘PE制作/">U盘PE制作</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2017-09-01</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/WinPE，U盘/">WinPE，U盘</a></span><div class="content"><p>这里我使用的是<a href="http://www.wepe.com.cn" target="_blank" rel="external">微PE工具箱</a>，大家如果发现其他好用的也可以用。</p>
+<p>下载的时候选择“Win10PE”的“64位版本下载”大小207MB，下载完成后打开。</p>
+<p><img src="/img/weipe1.png" alt="微PE"></p>
+<p>点击“其他安装方式&gt;”后面第一个，长的像U盘的那个。</p>
+<p><img src="/img/weipe2.png" alt="微PE"></p>
+<p>考虑到兼容性，我们的安装方法选择方案一；待写入U盘选择你的U盘；下一行格式化要勾选上，格式化后面是选择格式化成的文件系统，可以默认，不过要储存单个的大于4GB的文件需要NTFS格式，后面默认USB－HDD就可以了；下面的几个选项，可以按照自己的喜好来选择了。</p>
+<p>设置完成之后，点击“安装进U盘”，等待读条结束就可以了。</p>
+<p>至此，一个带有PE的U盘就做好了。</p>
+</div><hr></div><div class="recent-post-item"><a class="article-title" href="/2017/08/08/CentOS6-9搭建LNMP/">虚拟机CentOS6.9搭建LNMP</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2017-08-08</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/CentOS，LNMP/">CentOS，LNMP</a></span><div class="content"><h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><blockquote>
+<p>Linux+Nginx+Mysql+Php,基本的web服务器搭建,能达到200并发访问</p>
+</blockquote>
+<hr>
+<h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><h4 id="1-虚拟机中安装CentOS并成功设置网络环境"><a href="#1-虚拟机中安装CentOS并成功设置网络环境" class="headerlink" title="1.虚拟机中安装CentOS并成功设置网络环境"></a>1.虚拟机中安装CentOS并成功设置网络环境</h4><p>安装CentOS在这里就不过多赘述了，详细地介绍以下Vmware Workstation下对网络环境的配置。</p>
+<p>在安装好系统之后，打开“编辑虚拟机设置”。</p>
+<p><img src="/img/vm1.jpg" alt="vm1"></p>
+<p>可以看到这里有两个网络适配器。</p>
+<p><img src="/img/vm2.PNG" alt="vm2"></p>
+<p>默认状况下只有一个网络适配器，选中这个网络适配器，在右边选择“NAT模式”。然后，点击下面的“添加”，添加”网络适配器“，并选择“仅主机模式”。</p>
+<p><img src="/img/vm3.PNG" alt="vm3"></p>
+<p>然后，点击编辑-&gt;虚拟机网络编辑器。</p>
+<p><img src="/img/vm4.PNG" alt="vm4"></p>
+<p>在编辑器中，选中你添加的“仅主机模式”的网卡，在这里就是“VMnet1”，然后点击“更改设置”，</p>
+<p>将下面的“子网IP”改为“192.168.xxx.0”，这里第三部分可以自定义（只要最终是一个存在的IP就可以），后面的“子网掩码”改为“255.255.255.0”，点确定。</p>
+<p><img src="/img/vm5.PNG" alt="vm5"></p>
+<p>之后，点开本机的“更改适配器设置”，找到对应上面“VMnet1”的虚拟网卡，右击选择属性，更改ipv4的属性，将“IP地址”填为“192.168.xxx.1”（这里的IP地址前三部份要与上面的一致），“子网掩码”改为“255.255.255.0”。保存退出。</p>
+<p>完成以上步骤后，打开虚拟机，以root身份登陆。</p>
+<p>打开/etc/rc.d/rc.local文件，将下面三行添加到文件中。（eth0默认是网卡1，eth1是网卡2）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ifconfig eth1 up</div><div class="line">ifconfig eth1 192.168.xxx.xxx   （这里的IP地址，第三部分与前面步骤填写的一致，最后一部分可以是1之后的任一数字）</div><div class="line">ulimit -HSn 65536</div></pre></td></tr></table></figure>
+<p>完成之后，在虚拟机里面可以连接外网，本机上可以ping通网卡2的IP地址（你设置的192.168.xxx.xxx）。</p>
+<h4 id="2-搭建LNMP"><a href="#2-搭建LNMP" class="headerlink" title="2.搭建LNMP"></a>2.搭建LNMP</h4><ul>
+<li>查看环境：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@XXX]# cat /etc/redhat-release </div><div class="line">CentOS release 6.9 (Final)</div></pre></td></tr></table></figure>
+<ul>
+<li>关掉防火墙</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@XXX]# chkconfig iptables off</div></pre></td></tr></table></figure>
+<ul>
+<li>配置CentOS 6.0 第三方yum源（CentOS默认的标准源里没有nginx软件包）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># wget http://www.atomicorp.com/installers/atomic</div><div class="line"># sh ./atomic</div><div class="line"># yum check-update</div></pre></td></tr></table></figure>
+<ul>
+<li>安装开发包和库文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># yum -y install ntp make openssl openssl-devel pcre pcre-devel libpng libpng-devel libjpeg-6b libjpeg-devel-6b freetype freetype-devel gd gd-devel zlib zlib-devel gcc gcc-c++ libXpm libXpm-devel ncurses ncurses-devel libmcrypt libmcrypt-devel libxml2 libxml2-devel imake autoconf automake screen sysstat compat-libstdc++-33 curl curl-devel</div></pre></td></tr></table></figure>
+<ul>
+<li>卸载已安装的apache、mysql、php</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># yum remove httpd</div><div class="line"># yum remove mysql</div><div class="line"># yum remove php</div></pre></td></tr></table></figure>
+<ul>
+<li>安装nginx</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># yum install nginx</div><div class="line"># service nginx start</div><div class="line"># chkconfig --levels 235 nginx on   //设2、3、5级别开机启动</div></pre></td></tr></table></figure>
+<ul>
+<li>安装mysql</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># yum install mysql mysql-server mysql-devel</div><div class="line"># service mysqld start</div><div class="line"># chkconfig --levels 235 mysqld on</div></pre></td></tr></table></figure>
+<ul>
+<li>登陆MySQL删除空用户，修改root密码</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mysql&gt;select user,host,password from mysql.user;</div><div class="line">mysql&gt;drop user &apos;&apos;@localhost;</div><div class="line">mysql&gt;update mysql.user set password = PASSWORD(&apos;*********&apos;) where user=&apos;root&apos;;</div><div class="line">mysql&gt;flush privileges;</div></pre></td></tr></table></figure>
+<ul>
+<li>安装php</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># yum install php lighttpd-fastcgi php-cli php-mysql php-gd php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-mssql php-snmp php-soap</div></pre></td></tr></table></figure>
+<ul>
+<li>安装php和所需组件使PHP支持MySQL、FastCGI模式</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># yum install  php-tidy php-common php-devel php-fpm php-mysql</div><div class="line"># service php-fpm start</div><div class="line"># chkconfig --levels 235 php-fpm on</div></pre></td></tr></table></figure>
+<ul>
+<li><p>配置nginx支持php</p>
+<p>首先，将配置文件改为备份文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># mv /etc/nginx/nginx.conf /etc/nginx/nginx.confbak</div></pre></td></tr></table></figure>
+<p>然后，由于原配置文件要自己去写因此可以使用默认的配置文件作为配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># cp /etc/nginx/nginx.conf.default /etc/nginx/nginx.conf</div></pre></td></tr></table></figure>
+<p>修改nginx配置文件，添加fastcgi支持</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"># vi /etc/nginx/nginx.conf</div><div class="line">index index.php index.html index.htm;       //加入index.php</div><div class="line"></div><div class="line">location ~ \.php$ &#123;</div><div class="line">            root           /usr/share/nginx/html;</div><div class="line">            fastcgi_pass   127.0.0.1:9000;</div><div class="line">            fastcgi_index  index.php;</div><div class="line">            fastcgi_param  SCRIPT_FILENAME  /usr/share/nginx/html$fastcgi_script_name;</div><div class="line">            include        fastcgi_params;</div><div class="line">        &#125;</div><div class="line"> //用vi打开文件后这一部分原本是被注释的，需要把前面的#去掉，并修改成nginx默认路径</div></pre></td></tr></table></figure>
+</li>
+<li><p>配置php</p>
+<p>编辑文件php.ini，在文件末尾添加cgi.fix_pathinfo = 1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># vi /etc/php.ini</div></pre></td></tr></table></figure>
+</li>
+<li><p>重启nginx php-fpm</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># service nginx restart</div><div class="line"># service php-fpm restart</div></pre></td></tr></table></figure>
+<ul>
+<li>建立phpinfo.php文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># vi /usr/share/nginx/html/info.php</div><div class="line">&lt;?php     phpinfo();     ?&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>测试nginx是否解析php</p>
+<p>本地浏览器输入</p>
+<p>localhost:8080/phpinfo.php</p>
+<p>或者</p>
+<p>192.168.xxx.xxx/phpinfo.php</p>
+<p>显示php界面 环境搭建成功 </p>
+<p><img src="img/vm6.png" alt="vm6"></p>
+</li>
+</ul>
+<h3 id="访问测试"><a href="#访问测试" class="headerlink" title="访问测试"></a>访问测试</h3><p>这里我们用webbench来模拟多人并发访问。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># webbench -c 并发数 -t 运行测试时间 URL</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"># webbench -c 200 -t 30 http://192.168.66.110/info.php</div><div class="line">Webbench - Simple Web Benchmark 1.5</div><div class="line">Copyright (c) Radim Kolar 1997-2004, GPL Open Source Software.</div><div class="line"></div><div class="line">Benchmarking: GET http://192.168.66.110/info.php</div><div class="line">200 clients, running 30 sec.</div><div class="line"></div><div class="line">Speed=42534 pages/min, 41301852 bytes/sec.</div><div class="line">Requests: 21267 susceed, 0 failed.</div></pre></td></tr></table></figure>
+<p>上面是我的测试实例，200并发访问，测试时间30s。</p>
+</div><hr></div><div class="recent-post-item"><a class="article-title" href="/2017/07/31/Linux-目录及目录结构/">Linux 目录及目录结构</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2017-07-31</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Linux，系统目录/">Linux，系统目录</a></span><div class="content"><p><img src="/img/mulu.jpg" alt="目录结构"></p>
+<p>以下是对这些目录的解释：</p>
+<ul>
+<li><p>/bin：</p>
+<p>bin是Binary的缩写, 这个目录存放着最经常使用的命令。</p>
+</li>
+<li><p>/boot：</p>
+<p>这里存放的是启动Linux时使用的一些核心文件，包括一些连接文件以及镜像文件。</p>
+</li>
+<li><p>/dev ：</p>
+<p>dev是Device(设备)的缩写, 该目录下存放的是Linux的外部设备，在Linux中访问设备的方式和访问文件的方式是相同的。</p>
+</li>
+<li><p>/etc：</p>
+<p>这个目录用来存放所有的系统管理所需要的配置文件和子目录。</p>
+</li>
+<li><p>/home：</p>
+<p>用户的主目录，在Linux中，每个用户都有一个自己的目录，一般该目录名是以用户的账号命名的。</p>
+</li>
+<li><p>/lib：</p>
+<p>这个目录里存放着系统最基本的动态连接共享库，其作用类似于Windows里的DLL文件。几乎所有的应用程序都需要用到这些共享库。</p>
+</li>
+<li><p>/lost+found：</p>
+<p>这个目录一般情况下是空的，当系统非法关机后，这里就存放了一些文件。</p>
+</li>
+<li><p>/media：</p>
+<p>linux系统会自动识别一些设备，例如U盘、光驱等等，当识别后，linux会把识别的设备挂载到这个目录下。</p>
+</li>
+<li><p>/mnt：</p>
+<p>系统提供该目录是为了让用户临时挂载别的文件系统的，我们可以将光驱挂载在/mnt/上，然后进入该目录就可以查看光驱里的内容了。</p>
+</li>
+<li><p>/opt：</p>
+<p>这是给主机额外安装软件所摆放的目录。比如你安装一个ORACLE数据库则就可以放到这个目录下。默认是空的。</p>
+</li>
+<li><p>/proc：</p>
+<p>这个目录是一个虚拟的目录，它是系统内存的映射，我们可以通过直接访问这个目录来获取系统信息。</p>
+<p>这个目录的内容不在硬盘上而是在内存里，我们也可以直接修改里面的某些文件，比如可以通过下面的命令来屏蔽主机的ping命令，使别人无法ping你的机器：</p>
+</li>
+</ul>
+<blockquote>
+<p>echo 1 &gt; /proc/sys/net/ipv4/icmp_echo_ignore_all</p>
+</blockquote>
+<ul>
+<li><p>/root：</p>
+<p>该目录为系统管理员，也称作超级权限者的用户主目录。</p>
+</li>
+<li><p>/sbin：</p>
+<p>s就是Super User的意思，这里存放的是系统管理员使用的系统管理程序。</p>
+</li>
+<li><p>/selinux：</p>
+<p> 这个目录是Redhat/CentOS所特有的目录，Selinux是一个安全机制，类似于windows的防火墙，但是这套机制比较复杂，这个目录就是存放selinux相关的文件的。</p>
+</li>
+<li><p>/srv：</p>
+<p> 该目录存放一些服务启动之后需要提取的数据。</p>
+</li>
+<li><p>/sys：</p>
+<p>这是linux2.6内核的一个很大的变化。该目录下安装了2.6内核中新出现的一个文件系统 sysfs 。</p>
+<p>sysfs文件系统集成了下面3种文件系统的信息：针对进程信息的proc文件系统、针对设备的devfs文件系统以及针对伪终端的devpts文件系统。</p>
+<p>该文件系统是内核设备树的一个直观反映。</p>
+<p>当一个内核对象被创建的时候，对应的文件和目录也在内核对象子系统中被创建。</p>
+</li>
+<li><p>/tmp：</p>
+<p>这个目录是用来存放一些临时文件的。</p>
+</li>
+<li><p>/usr：</p>
+<p> 这是一个非常重要的目录，用户的很多应用程序和文件都放在这个目录下，类似与windows下的program files目录。</p>
+</li>
+<li><p>/usr/bin：</p>
+<p>系统用户使用的应用程序。</p>
+</li>
+<li><p>/usr/sbin：</p>
+<p>超级用户使用的比较高级的管理程序和系统守护程序。</p>
+</li>
+<li><p>/usr/src：</p>
+<p>内核源代码默认的放置目录。</p>
+</li>
+<li><p>/var：</p>
+<p>这个目录中存放着在不断扩充着的东西，我们习惯将那些经常被修改的目录放在这个目录下。包括各种日志文件。</p>
+</li>
+</ul>
+<p>在linux系统中，有几个目录是比较重要的，平时需要注意不要误删除或者随意更改内部文件。</p>
+<p>/etc： 上边也提到了，这个是系统中的配置文件，如果你更改了该目录下的某个文件可能会导致系统不能启动。/bin, /sbin, /usr/bin, /usr/sbin: 这是系统预设的执行文件的放置目录，比如 ls 就是在/bin/ls 目录下的。</p>
+<p>值得提出的是，/bin, /usr/bin 是给系统用户使用的指令（除root外的通用户），而/sbin, /usr/sbin 则是给root使用的指令。<br>/var： 这是一个非常重要的目录，系统上跑了很多程序，那么每个程序都会有相应的日志产生，而这些日志就被记录到这个目录下，具体在/var/log 目录下，另外mail的预设放置也是在这里。</p>
+</div><hr></div><div class="recent-post-item"><a class="article-title" href="/2017/07/31/Linux-常用命令/">Linux 常用命令</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2017-07-31</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Linux，常用命令/">Linux，常用命令</a></span><div class="content"><p><a href="http://www.runoob.com/linux/linux-command-manual.html" target="_blank" rel="external">详细资料</a></p>
+</div><hr></div><div class="recent-post-item"><a class="article-title" href="/2017/07/27/linux-yum命令/">linux yum命令</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2017-07-27</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Linux，yum/">Linux，yum</a></span><div class="content"><p>yum（全称为 Yellow dog Updater, Modified）是一个在Fedora和RedHat以及SUSE中的Shell前端软件包管理器。基於RPM包管理，能够从指定的服务器自动下载RPM包并且安装，可以自动处理依赖性关系，并且一次安装所有依赖的软体包，无须繁琐地一次次下载、安装。yum提供了查找、安装、删除某一个、一组甚至全部软件包的命令，而且命令简洁而又好记。</p>
+<p>yum的命令形式一般是如下：yum [options][command][package …]<br>其中的[options]是可选的，选项包括-h（帮助），-y（当安装过程提示选择全部为”yes”），-q（不显示安装的过程）等等。[command]为所要进行的操作，[package …]是操作的对象。</p>
+<h4 id="options"><a href="#options" class="headerlink" title="options"></a>options</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">-h：显示帮助信息； </div><div class="line">-y：对所有的提问都回答“yes”； </div><div class="line">-c：指定配置文件； </div><div class="line">-q：安静模式； </div><div class="line">-v：详细模式； </div><div class="line">-d：设置调试等级（0-10）； </div><div class="line">-e：设置错误等级（0-10）； </div><div class="line">-R：设置yum处理一个命令的最大等待时间； </div><div class="line">-C：完全从缓存中运行，而不去下载或者更新任何头文件。</div></pre></td></tr></table></figure>
+<h4 id="command"><a href="#command" class="headerlink" title="command"></a>command</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">install：安装rpm软件包； </div><div class="line">update：更新rpm软件包； </div><div class="line">check-update：检查是否有可用的更新rpm软件包； </div><div class="line">remove：删除指定的rpm软件包； </div><div class="line">list：显示软件包的信息； </div><div class="line">search：检查软件包的信息； </div><div class="line">info：显示指定的rpm软件包的描述信息和概要信息； </div><div class="line">clean：清理yum过期的缓存； </div><div class="line">shell：进入yum的shell提示符； </div><div class="line">resolvedep：显示rpm软件包的依赖关系； </div><div class="line">localinstall：安装本地的rpm软件包； </div><div class="line">localupdate：显示本地rpm软件包进行更新； </div><div class="line">deplist：显示rpm软件包的所有依赖关系。</div></pre></td></tr></table></figure>
+<h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h4><p>自动搜索最快镜像插件：   yum install yum-fastestmirror<br>安装yum图形窗口插件：    yum install yumex<br>查看可能批量安装的列表： yum grouplist</p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yum install				#全部安装</div><div class="line">yum install package1	 #安装指定的安装包package1</div><div class="line">yum groupinsall group1	 #安装程序组group1</div></pre></td></tr></table></figure>
+<h4 id="更新和升级"><a href="#更新和升级" class="headerlink" title="更新和升级"></a>更新和升级</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">yum update 				#全部更新 </div><div class="line">yum update package1 	#更新指定程序包package1 </div><div class="line">yum check-update 		#检查可更新的程序 </div><div class="line">yum upgrade package1 	#升级指定程序包package1 </div><div class="line">yum groupupdate group1 	#升级程序组group1</div></pre></td></tr></table></figure>
+<h4 id="查找和显示"><a href="#查找和显示" class="headerlink" title="查找和显示"></a>查找和显示</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">yum info package1 		#显示安装包信息package1 </div><div class="line">yum list 				#显示所有已经安装和可以安装的程序包 </div><div class="line">yum list package1 		#显示指定程序包安装情况package1 </div><div class="line">yum groupinfo group1 	#显示程序组group1信息yum search string 根据关键字string查找安装包</div></pre></td></tr></table></figure>
+<h4 id="删除程序"><a href="#删除程序" class="headerlink" title="删除程序"></a>删除程序</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yum remove | erase package1 	#删除程序包package1 </div><div class="line">yum groupremove group1 			#删除程序组group1 </div><div class="line">yum deplist package1 			#查看程序package1依赖情况</div></pre></td></tr></table></figure>
+<h4 id="清除缓存"><a href="#清除缓存" class="headerlink" title="清除缓存"></a>清除缓存</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yum clean packages 		#清除缓存目录下的软件包 </div><div class="line">yum clean headers 		#清除缓存目录下的 headers </div><div class="line">yum clean oldheaders 	#清除缓存目录下旧的 headers</div></pre></td></tr></table></figure>
+</div><hr></div><div class="recent-post-item"><a class="article-title" href="/2017/07/13/hexo-GitHub-pages博客搭建教程/">hexo+GitHub pages博客搭建教程</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2017-07-13</time><div class="content"></div><hr></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2018 By 陈凯</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span><span></span></span><span class="footer-separator">|</span><span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="/js/third-party/anime.min.js"></script><script src="/js/third-party/jquery.min.js"></script><script src="/js/third-party/jquery.fancybox.min.js"></script><script src="/js/third-party/velocity.min.js"></script><script src="/js/third-party/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.5.4"></script><script src="/js/fancybox.js?version=1.5.4"></script><script src="/js/sidebar.js?version=1.5.4"></script><script src="/js/copy.js?version=1.5.4"></script><script src="/js/fireworks.js?version=1.5.4"></script><script src="/js/transition.js?version=1.5.4"></script><script src="/js/scroll.js?version=1.5.4"></script><script src="/js/head.js?version=1.5.4"></script></body></html>
