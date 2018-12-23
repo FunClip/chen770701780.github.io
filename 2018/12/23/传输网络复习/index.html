@@ -1,0 +1,278 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="传输网络复习"><meta name="keywords" content="复习"><meta name="author" content="陈凯,undefined"><meta name="copyright" content="陈凯"><title>传输网络复习 | Ck's Blog</title><link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css?version=1.5.4"><link rel="dns-prefetch" href="https://cdn.staticfile.org"><link rel="dns-prefetch" href="https://cdn.bootcss.com"><link rel="dns-prefetch" href="https://creativecommons.org"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  localSearch: undefined
+} </script></head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#第一章-基本概念"><span class="toc-number">1.</span> <span class="toc-text">第一章 基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-传输网络的构成"><span class="toc-number">1.1.</span> <span class="toc-text">1.传输网络的构成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-传输网络的网络拓扑"><span class="toc-number">1.2.</span> <span class="toc-text">2.传输网络的网络拓扑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-传输网络的分类"><span class="toc-number">1.3.</span> <span class="toc-text">3.传输网络的分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-传输网的分层"><span class="toc-number">1.4.</span> <span class="toc-text">4.传输网的分层</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第二章-传输信道"><span class="toc-number">2.</span> <span class="toc-text">第二章 传输信道</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-有线传输"><span class="toc-number">2.1.</span> <span class="toc-text">1.有线传输</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-无线传输"><span class="toc-number">2.2.</span> <span class="toc-text">2.无线传输</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第三章-数字传输技术基础"><span class="toc-number">3.</span> <span class="toc-text">第三章 数字传输技术基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-信息传输方式"><span class="toc-number">3.1.</span> <span class="toc-text">1.信息传输方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-基带传输"><span class="toc-number">3.2.</span> <span class="toc-text">2.基带传输</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-调制信号"><span class="toc-number">3.3.</span> <span class="toc-text">3.调制信号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-加扰解扰"><span class="toc-number">3.4.</span> <span class="toc-text">4.加扰解扰</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-数字频带传输"><span class="toc-number">3.5.</span> <span class="toc-text">5.数字频带传输</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-交换技术"><span class="toc-number">3.6.</span> <span class="toc-text">7.交换技术</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第四章-光纤传输"><span class="toc-number">4.</span> <span class="toc-text">第四章 光纤传输</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-光纤传输的链路组成"><span class="toc-number">4.1.</span> <span class="toc-text">1.光纤传输的链路组成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-光纤导光原理"><span class="toc-number">4.2.</span> <span class="toc-text">2.光纤导光原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-光纤的传输特性"><span class="toc-number">4.3.</span> <span class="toc-text">3.光纤的传输特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-光源和光发射机"><span class="toc-number">4.4.</span> <span class="toc-text">4.光源和光发射机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-SDH"><span class="toc-number">4.5.</span> <span class="toc-text">5.SDH</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第五章-无线传输"><span class="toc-number">5.</span> <span class="toc-text">第五章 无线传输</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-微波通信"><span class="toc-number">5.1.</span> <span class="toc-text">1.微波通信</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-卫星通信"><span class="toc-number">5.2.</span> <span class="toc-text">2.卫星通信</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第六章-电信传输网络"><span class="toc-number">6.</span> <span class="toc-text">第六章 电信传输网络</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-电话网"><span class="toc-number">6.1.</span> <span class="toc-text">1.电话网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-计算机网络"><span class="toc-number">6.2.</span> <span class="toc-text">2.计算机网络</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第七章、第八章"><span class="toc-number">7.</span> <span class="toc-text">第七章、第八章</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">陈凯</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">12</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">19</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container" style="background-image: url(true)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">Ck's Blog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="post-info"><div id="post-title">传输网络复习</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2018-12-23</time><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">3,048</span><span class="post-meta__separator">|</span><span>阅读时长: 10 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div id="post-content"><h2 id="第一章-基本概念"><a href="#第一章-基本概念" class="headerlink" title="第一章 基本概念"></a>第一章 基本概念</h2><h3 id="1-传输网络的构成"><a href="#1-传输网络的构成" class="headerlink" title="1.传输网络的构成"></a>1.传输网络的构成</h3><ul>
+<li>从基本原理看：传输设备和网络节点（设备）</li>
+<li>从物理形态看：传输媒介（电缆、地面微波接力通信、通信卫星、光纤）和传输设备（频分/时分/码分复用设备）</li>
+</ul>
+<h3 id="2-传输网络的网络拓扑"><a href="#2-传输网络的网络拓扑" class="headerlink" title="2.传输网络的网络拓扑"></a>2.传输网络的网络拓扑</h3><ul>
+<li>线形</li>
+<li>环形</li>
+<li>星形</li>
+<li>网孔形</li>
+</ul>
+<h3 id="3-传输网络的分类"><a href="#3-传输网络的分类" class="headerlink" title="3.传输网络的分类"></a>3.传输网络的分类</h3><p>按传输媒介分：</p>
+<ul>
+<li>有线传输：电缆传输网、光缆传输网、国际海缆传输网</li>
+<li>无线传输：微波传输网、卫星传输网</li>
+</ul>
+<p>按所处的位置和作用分：</p>
+<ul>
+<li>长途传输网：国际长途传输网、省际长途传输网、国内长途传输网</li>
+<li>本地传输网：中继传输层、接入传输层</li>
+<li>接入传输网：馈线、配线、引入线</li>
+</ul>
+<h3 id="4-传输网的分层"><a href="#4-传输网的分层" class="headerlink" title="4.传输网的分层"></a>4.传输网的分层</h3><ul>
+<li>省际长途传输网（上层连国际关口局、下层连每个省的核心节点）主流技术：WDM+SDH</li>
+<li>省内长途传输网（连接各个城市主要市、县、区的核心节点）主流技术：WDM+SDH</li>
+<li>本地传输网（本地网骨干/汇聚层（Metro WDM +SDH/MSTP）、接入层（SDH+PDH+Others））</li>
+</ul>
+<p><img src="img/chuanshuwangluo/1.JPG" alt="传输网的分层"></p>
+<h2 id="第二章-传输信道"><a href="#第二章-传输信道" class="headerlink" title="第二章 传输信道"></a>第二章 传输信道</h2><h3 id="1-有线传输"><a href="#1-有线传输" class="headerlink" title="1.有线传输"></a>1.有线传输</h3><p>光纤：</p>
+<ul>
+<li><p>常用波长：短波0.85μm，长波1.31μm和1.55μm</p>
+</li>
+<li><p>组成和结构：用石英玻璃制成的横截面很小的双层同心圆柱体</p>
+<p><img src="img/chuanshuwangluo/2.1.png" alt="光线结构"></p>
+</li>
+<li><p>要求：低损耗和低色散</p>
+</li>
+<li><p>分类：按折射率（阶跃型光纤和渐变型光纤）、按传输模式（多模光纤和单模光纤）、按工作波长（短波长和长波长）</p>
+</li>
+<li><p>有线信道传输特性：$ H(\omega)=|H(\omega)|e^{j\varphi(\omega)}$</p>
+<p>其中$ |H(\omega)|$ 是幅度-频率特性，$ \varphi(\omega) $ 是相位-频率特性</p>
+<p><img src="img\chuanshuwangluo\2.3.png" alt="传输特性"></p>
+</li>
+</ul>
+<h3 id="2-无线传输"><a href="#2-无线传输" class="headerlink" title="2.无线传输"></a>2.无线传输</h3><p><img src="img/chuanshuwangluo/2.2.png" alt="频段划分"></p>
+<ul>
+<li><p>分为微波通信和卫星通信</p>
+</li>
+<li><p>无线信道的传输特性</p>
+<ul>
+<li>对信号的衰减随时间变化而变化</li>
+<li>传输的时延随时间变化而变化</li>
+<li>多径传播</li>
+</ul>
+</li>
+<li><p>多径传播的影响</p>
+<ul>
+<li>传输瑞利型衰落和频率弥散</li>
+<li>造成频率选择性衰落</li>
+</ul>
+</li>
+<li><p>如何克服多径传播</p>
+<p>为了抗快衰落，通常可采用多种措施，例如，各种抗衰落的调制解调技术、抗衰落接收技术及扩频技术等，其中较为有效且常用的抗衰落措施是分集接收技术 。</p>
+</li>
+</ul>
+<h2 id="第三章-数字传输技术基础"><a href="#第三章-数字传输技术基础" class="headerlink" title="第三章 数字传输技术基础"></a>第三章 数字传输技术基础</h2><h3 id="1-信息传输方式"><a href="#1-信息传输方式" class="headerlink" title="1.信息传输方式"></a>1.信息传输方式</h3><ul>
+<li>根据方向和时间：单工、半双工、双工</li>
+<li>根据数字信号码元的排列方式：串行、并行；同步、异步</li>
+</ul>
+<h3 id="2-基带传输"><a href="#2-基带传输" class="headerlink" title="2.基带传输"></a>2.基带传输</h3><p>数字基带传输是把二进制数字信号以电脉冲的形式在实线电路上进行传输，信号不经过调制，但需要进行码型变换。   </p>
+<p><img src="img/chuanshuwangluo/3.1.png" alt="数字基带传输系统"></p>
+<ul>
+<li><p>常用码型：AMI和HDB3（结合实验5）</p>
+</li>
+<li><p>归零码和非归零码的特点：不归零码在传输中难以确定一位的结束和另一位的开始，需要用某种方法使发送器和接收器之间进行定时或同步；  归零码的脉冲较窄，根据脉冲宽度与传输频带宽度成反比的关系，因而归零码在信道上占用的频带较宽。  </p>
+<p><img src="img/chuanshuwangluo/3.2.png" alt="几种数字基带信号的功率谱"></p>
+<p>其中T是基带信号的码元宽度，t是脉冲宽度，t/T是占空比</p>
+</li>
+<li><p>计算$ f_N $ $ R_B $ $ B $ 滚降系数$ \alpha $  等，复习作业题</p>
+</li>
+</ul>
+<h3 id="3-调制信号"><a href="#3-调制信号" class="headerlink" title="3.调制信号"></a>3.调制信号</h3><ul>
+<li>计算$ B_s $ $ \eta $ 等，复习作业题</li>
+</ul>
+<h3 id="4-加扰解扰"><a href="#4-加扰解扰" class="headerlink" title="4.加扰解扰"></a>4.加扰解扰</h3><ul>
+<li>生成m序列（长度2^n-1）、写出状态等</li>
+</ul>
+<h3 id="5-数字频带传输"><a href="#5-数字频带传输" class="headerlink" title="5.数字频带传输"></a>5.数字频带传输</h3><ul>
+<li><p>幅移键控（ASK）（线性调制）、频移键控（FSK）（非线性调制）、相移键控（PSK）</p>
+</li>
+<li><p>为了克服2PSK的相位模糊，使用2DPSK二进制相对移相键控（发送端输入的基带是相对码，接收端先2PSK译码再相对码译码）</p>
+</li>
+</ul>
+<p>###6. 我国的PCM30/32路系统帧结构</p>
+<p><img src="img/chuanshuwangluo/3.3.png" alt="PCM30/32"></p>
+<p><img src="img/chuanshuwangluo/3.4.png" alt="例题"></p>
+<h3 id="7-交换技术"><a href="#7-交换技术" class="headerlink" title="7.交换技术"></a>7.交换技术</h3><ul>
+<li><p>电路交换、报文交换、分组交换</p>
+</li>
+<li><p>总结：</p>
+<p>（1）数据量大，传送时间远大于呼叫时间，适合电路交换。<br>（2）端到端的通路由很多段的链路组成，适合分组交换。<br>（3）报文交换的信道利用率高于分组交换。<br>（4）分组交换适用于计算机之间突发式的数据通信。</p>
+</li>
+</ul>
+<h2 id="第四章-光纤传输"><a href="#第四章-光纤传输" class="headerlink" title="第四章 光纤传输"></a>第四章 光纤传输</h2><h3 id="1-光纤传输的链路组成"><a href="#1-光纤传输的链路组成" class="headerlink" title="1.光纤传输的链路组成"></a>1.光纤传输的链路组成</h3><p>光发射机-&gt;再生中继-&gt;光接收机</p>
+<p><img src="img/chuanshuwangluo/4.1.png" alt="链路组成"></p>
+<h3 id="2-光纤导光原理"><a href="#2-光纤导光原理" class="headerlink" title="2.光纤导光原理"></a>2.光纤导光原理</h3><ul>
+<li><p>光的全反射</p>
+</li>
+<li><p>光在某介质的折射率：$ n = c /v $ （$ c $ 光速，$ v $ 光在该介质的传播速度）</p>
+</li>
+<li><p>光的折射定律：$ n_1sin\theta_1 = n_2sin\theta_2 $ ，角度是与法线的夹角</p>
+</li>
+<li><p>光纤的纤芯比包层折射率更大</p>
+</li>
+<li><p>临界入射角$ \theta_{1c} $ ，临界传播角$ \alpha_c$ </p>
+<p><img src="img/chuanshuwangluo/4.2.png" alt=""></p>
+</li>
+<li><p>光纤接收角$2\theta_a$</p>
+<p><img src="img/chuanshuwangluo/4.3.png" alt=""></p>
+</li>
+<li><p>数值孔径$ NA=\sqrt{n_1^2-n_2^2} $</p>
+</li>
+</ul>
+<h3 id="3-光纤的传输特性"><a href="#3-光纤的传输特性" class="headerlink" title="3.光纤的传输特性"></a>3.光纤的传输特性</h3><ul>
+<li>损耗：<ul>
+<li>弯曲损耗</li>
+<li>散射损耗</li>
+<li>吸收损耗</li>
+</ul>
+</li>
+<li>衰减的计算：衰减$Loss=10lg(P<em>{in}/P</em>{out})$，单位长度衰减 $ A=Loss/光纤长度(dB/km)$</li>
+<li>色散：<ul>
+<li>模式色散</li>
+<li>材料色散（了解）</li>
+<li>波导色散（了解）</li>
+</ul>
+</li>
+<li>模式数量计算 归一化频率参数：$ V=\frac{\pi d}{\lambda}\sqrt{NA} $ ，数量：阶跃光纤$N=V^2/2,V&gt;20$ ,渐变光纤$N=V^2/4$,详见作业题</li>
+<li>模式色散的大小用时延差$\Delta\tau$表示，也叫脉冲展宽，$ \Delta\tau = t<em>{max}-t</em>{min}=\frac{L}{2cn_2}(NA)^2$</li>
+<li>色散的影响：脉冲会随着传输距离变宽从而产生重叠，从而产生误码。模式色散严重地影响了信息的传输速率。</li>
+<li>如何减弱色散的影响：采用渐变折射率光纤、采用单模光纤</li>
+</ul>
+<h3 id="4-光源和光发射机"><a href="#4-光源和光发射机" class="headerlink" title="4.光源和光发射机"></a>4.光源和光发射机</h3><ul>
+<li><p>光源要求：</p>
+<ol>
+<li>光源的发射波长应该与光纤的低损耗窗口一致，目前为0.85 μm 、l.3 μm和1.55μm这三个低损耗窗口。</li>
+<li>光源的谱线宜窄，以减小色散的影响</li>
+<li>光源与光纤的耦合效率要高，目前，半导体激光器与尾纤的耦合效率为10％－20％，最好可达50％。</li>
+<li>调制方法简单</li>
+<li>响应速度要快</li>
+<li>能够室温连续工作，并能提供足够的光输出功率</li>
+<li>体积小、重量轻、寿命长</li>
+</ol>
+</li>
+<li><p>激光器（LD）的工作特性：</p>
+<p>阈值特性和线性特性</p>
+<p><img src="img/chuanshuwangluo/4.4.png" alt="LDfeature"></p>
+<p>光谱特性：荧光光谱宽，激光光谱窄</p>
+<p>温度特性：阈值电流随温度升高而增大</p>
+</li>
+<li><p>发光二极管（LED）的工作特性：</p>
+<ol>
+<li>光谱较宽（国内一般边发光二极管的最高调制频率为70－100MHz）</li>
+<li>P-I曲线的线性好：输出功率随电流几乎线性增加，调制时动态范围大，信号失真小</li>
+<li>光纤的耦合效率低（发出的光束发散角较大）</li>
+<li>寿命长</li>
+<li>温度特性好</li>
+</ol>
+</li>
+<li><p>光源调制：分为直接调制和间接调制。</p>
+<p>直接调制：简单方便，但动态谱线宽，色散大，调制速率在Gbps.间接调制:调制速率在10Gbps </p>
+</li>
+<li><p>光发射机<img src="img/chuanshuwangluo/4.5.png" alt="lightsender"></p>
+<p>APC自动光功率控制，ATC自动温度控制</p>
+</li>
+<li><p>光接收机<img src="img/chuanshuwangluo/4.6.png" alt="lightrecv"></p>
+<p>AGC自动增益控制，因为噪声也会被放大，所以前置放大器一定是低噪放</p>
+</li>
+<li><p>光接收机指标</p>
+<p>灵敏度：就是在满足给定的误码率指标条件下最低接收的平均光功率$P_{min}$。工程上用相对值$S<em>r=10lg(\frac{P</em>{min}}{10^{-3}})(dBm)$</p>
+<p>动态范围：$D=10lg\frac{P<em>{max}}{P</em>{min}}(dB)$,其中最大和最小功率都用dBm表示</p>
+</li>
+</ul>
+<h3 id="5-SDH"><a href="#5-SDH" class="headerlink" title="5.SDH"></a>5.SDH</h3><p> SDH是由一些基本网络单元（NE， network element）组成，在信道上进行同步信息传输、复用和交叉连接的网络。<br> 目前实际应用的基本网络单元有四种，即终端复用器（TM, terminal multiplexer ）、分插复用器（ADM, add drop multiplexer ）、再生中继器 （REG, Regenerative repeater ）和SDH数字交叉连接设备（SDXC, Digital Cross Connect equipment ）。</p>
+<ul>
+<li><p>TM：是将低速支路信号或者低速SDH信号复用进高速的SDH设备，具有灵活分插任意支路信号的能力。</p>
+</li>
+<li><p>ADM：将低速支路信号交叉复用仅东或西向线路上去，或从东或西侧线路端口收到的线路信号中拆分出低速支路信号。</p>
+</li>
+<li><p>REG：当ADM不上/下话路时可完全等效为一个REG</p>
+</li>
+<li><p>SDXC：主要完成STM-N信号的交叉连接功能，通常用SDXC m/n来表示一个SDXC的类型和性能（注m≥n），m表示可接入SDXC的最高速率等级，n表示在交叉矩阵中能够进行交叉连接的最低速率级别。 <img src="img/chuanshuwangluo/4.7.png" alt="ratetable"></p>
+</li>
+<li><p>SDH帧结构</p>
+<p><img src="img/chuanshuwangluo/4.8.png" alt="sdh"></p>
+</li>
+<li><p>速率计算：STM-1  8000帧*9行*270列*8bit</p>
+</li>
+<li><p>SDH复用步骤：映射（相当于信号打包）、定位（相当于指针调整）、复用</p>
+</li>
+<li><p>我国SDH复用结构</p>
+<p><img src="img/chuanshuwangluo/4.9.png" alt="cnsdh"></p>
+<p>各单元之间的关系，详见作业题</p>
+</li>
+<li><p>SDH自愈网</p>
+<ul>
+<li>线路保护倒换</li>
+<li>环形网保护</li>
+<li>DXC保护</li>
+<li>混合保护</li>
+</ul>
+<p><img src="img/chuanshuwangluo/4.10.png" alt="sdhzy"></p>
+</li>
+<li><p>光信号复用</p>
+<ul>
+<li><p>波分复用（WDM）：在发送端采用波分复用器（合波器）将不同规定波长的信号光载波合并起来送入一根光纤进行传输。</p>
+</li>
+<li><p>时分复用（OTDM）：调制后的信号经过不同的时延后用合路器合并成一路信号，完成复用功能，即变成一路高速OTDM信号。</p>
+</li>
+<li><p>码分复用（OCDM）：在发送端将不同的用户信息采用相互正交的扩频码序列进行调制后再发送，在接收端采用相关解调来恢复原始数据。</p>
+<p><img src="img/chuanshuwangluo/4.11.png" alt="ofuyong"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="第五章-无线传输"><a href="#第五章-无线传输" class="headerlink" title="第五章 无线传输"></a>第五章 无线传输</h2><h3 id="1-微波通信"><a href="#1-微波通信" class="headerlink" title="1.微波通信"></a>1.微波通信</h3><p><img src="img/chuanshuwangluo/5.1.png" alt="freqtable"></p>
+<ul>
+<li>中继距离：50km</li>
+<li>自由空间的传播损耗 $[L_p]=32.45+20lgd(km)+20lgf(mHz)=92.45+20lgd(km)+20lgf(GHz)$</li>
+<li>信道的基本损耗$[L’_p]=[L_p]-[G_T]-[G_R]$</li>
+<li>收信功率$P_R(dBm)=P_T-[L’_p]$</li>
+<li>天线余隙计算，详见作业题</li>
+<li>微波通信特点：<ul>
+<li>具有类似光波的特性</li>
+<li>微波波段的频带宽、通信容量大</li>
+<li>适于传送宽频带信号</li>
+<li>采用中继传输方式</li>
+<li>抗干扰能力强</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-卫星通信"><a href="#2-卫星通信" class="headerlink" title="2.卫星通信"></a>2.卫星通信</h3><ul>
+<li>轨道分类：低轨道（对地观测卫星，如铱星、全球星，小于2kkm）、中轨道（北斗，小于20kkm）、同步轨道（天链，36kkm）</li>
+<li>优点：<ul>
+<li>覆盖面积大，通信距离远，建站成本与通信距离基本无关</li>
+<li>组网灵活，便于多址连接</li>
+<li>通信容量大</li>
+<li>通信质量好可靠性高</li>
+<li>经济效益、社会效益好</li>
+</ul>
+</li>
+</ul>
+<h2 id="第六章-电信传输网络"><a href="#第六章-电信传输网络" class="headerlink" title="第六章 电信传输网络"></a>第六章 电信传输网络</h2><h3 id="1-电话网"><a href="#1-电话网" class="headerlink" title="1.电话网"></a>1.电话网</h3><ul>
+<li><p>我国电话网结构</p>
+<p><img src="img/chuanshuwangluo/6.1.png" alt="tel"></p>
+</li>
+<li><p>国际电话拨号规则：国际长途字冠（CN：00）＋国家号码＋国内长途区号＋本地号码（市话号码）</p>
+</li>
+<li><p>电话网性能要求：接续质量、传输质量和稳定质量 </p>
+</li>
+<li><p>路由选择：固定路由选择计划和动态路由选择计划 </p>
+<ul>
+<li>长途路由：1）网中任一长途交换中心呼叫另一长途交换中心时所选路由局向最多为3个；2）路由选择顺序为先选直达路由，再选迂回路由，最后选最终路由；3）在选择迂回路由时，先选择直接至受话区的迂回路由，后选择发话区的迂回路由。4）在经济合理的条件下，应使同一汇接区的主要话务在该汇接区疏通，路由选择过程中遇低呼损路由时，不再溢出至其他路由，路由选择即终止。</li>
+<li>本地路由：1）先选直达路由，遇忙再选择迂回路由，最后选择基干路由。在路由选择过程中，当遇到低呼损路由时，不允许再溢出到其他路由上，路由选择结束；2）数字本地网中，原则上端到端的最大串接电路数不超过3段，即端到端呼叫最多经过2次汇接。当汇接局间不能各个相连时，端到端的最大串接电路数可放宽到4段；3）1次接续最多可选择3个路由。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-计算机网络"><a href="#2-计算机网络" class="headerlink" title="2.计算机网络"></a>2.计算机网络</h3><p>详见练习题</p>
+<h2 id="第七章、第八章"><a href="#第七章、第八章" class="headerlink" title="第七章、第八章"></a>第七章、第八章</h2><p>详见作业题</p>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">陈凯</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://chenkai.tk/2018/12/23/传输网络复习/">https://chenkai.tk/2018/12/23/传输网络复习/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://chenkai.tk" target="_blank">Ck's Blog</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/复习/">复习</a></div><nav id="pagination"><div class="next-post pull-right"><a href="/2018/09/05/c语言函数指针/"><span>c语言函数指针</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2018 By 陈凯</div><div class="framework-info"><span>驱动 - </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file-o"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="/js/third-party/anime.min.js"></script><script src="/js/third-party/jquery.min.js"></script><script src="/js/third-party/jquery.fancybox.min.js"></script><script src="/js/third-party/velocity.min.js"></script><script src="/js/third-party/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.5.4"></script><script src="/js/fancybox.js?version=1.5.4"></script><script src="/js/sidebar.js?version=1.5.4"></script><script src="/js/copy.js?version=1.5.4"></script><script src="/js/fireworks.js?version=1.5.4"></script><script src="/js/transition.js?version=1.5.4"></script><script src="/js/scroll.js?version=1.5.4"></script><script src="/js/head.js?version=1.5.4"></script></body></html>
